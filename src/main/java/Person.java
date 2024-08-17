@@ -19,7 +19,7 @@ public class Person {
     }
 
     public boolean hasAge() {
-        return age > 0;
+        return OptionalInt.of(age).isPresent() & age > 0;
     }
 
     public boolean hasAddress() {
@@ -63,7 +63,7 @@ public class Person {
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", address='" + (hasAddress() ? getAddress() : " отсутствует ") + '\'' +
-                ", age=" + (hasAge() ? getAge().getAsInt() : " отсутствует ") +
+                ", age=" + (hasAge() ? getAge().getAsInt() : " ") +
                 '}';
     }
 }
