@@ -19,7 +19,11 @@ public class Person {
     }
 
     public boolean hasAge() {
-        return OptionalInt.of(age).isPresent() & age > 0;
+        if (age > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean hasAddress() {
@@ -47,7 +51,11 @@ public class Person {
     }
 
     public OptionalInt getAge() {
-        return OptionalInt.of(age);
+        if (hasAge()) {
+            return OptionalInt.of(age);
+        } else {
+            return OptionalInt.empty();
+        }
     }
 
     public PersonBuilder newChildBuilder() {
@@ -63,7 +71,7 @@ public class Person {
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", address='" + (hasAddress() ? getAddress() : " отсутствует ") + '\'' +
-                ", age=" + (hasAge() ? getAge().getAsInt() : " ") +
+                ", age=" + (hasAge() ? getAge().getAsInt() : " отсутствует ") +
                 '}';
     }
 }

@@ -34,7 +34,7 @@ public class PersonBuilder {
             throw new IllegalStateException("Заполните имя и фамилию!");
         }
         Person person;
-        if (OptionalInt.of(age).isEmpty()) {
+        if (age == 0) {
             person = new Person(name, surname);
         } else {
             person = new Person(name, surname, age);

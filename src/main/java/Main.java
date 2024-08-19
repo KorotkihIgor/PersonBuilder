@@ -10,7 +10,6 @@ public class Main {
                 .setName("Антошка")
                 .build();
         System.out.println("У " + mom + " есть сын, " + son);
-
         try {
             //  Возраст недопустимый
             new PersonBuilder().setAge(-100).build();
